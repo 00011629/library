@@ -1,0 +1,16 @@
+extends layout.pug
+
+block content
+  h1 All Books
+  if allbooks 
+     section.allbooks 
+        each book in allbooks 
+          article.book
+            img.img(src="static/images/"+book.imgage, alt=book.title)
+            h2.title 
+              a(href="allbooks/"+book.id)=book.title 
+            p.author #{book.author}
+             if book.favorites
+                 button.btn.add.active(data-id=book.id) Added to Favorites
+             else 
+                button.btn.add(data-id=book.id) Add to Favorites 

@@ -1,0 +1,23 @@
+extends layout.pug 
+
+block content
+
+   h1 Favourite books
+
+    if favoritebooks
+
+        section.allbooks
+
+            each book in favoritebooks
+
+                article.allbooks(id= book.id)
+
+                    img.img(src= 'static/images/' + book.image, alt= book.title)
+
+                    h2.title
+
+                       a(href= 'allbooks/' + book.id)= book.title
+
+                    p.author #{ book.author }
+
+                    button.btn.del(data-id= book.id) Delete from Favourites

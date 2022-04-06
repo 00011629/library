@@ -1,0 +1,26 @@
+extends layout.pug
+
+block content
+ .cont
+   h1.form-title Add your own book!
+
+     if error
+       p.error Error occured. Try again!
+
+     if success
+       p.success Book is added. 
+
+     form.form(method='POST' action='/newbooks')
+       label Id
+       input.input(type="text" name='id')
+
+       label Title
+       input.input(type="text" name='title')
+
+       label Description 
+       textarea.input(rows='8' cols='7' name='description')
+
+       label Author
+       input.input(type="text" name='author')
+
+       button.btn Add new book
